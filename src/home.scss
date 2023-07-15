@@ -1,0 +1,370 @@
+$nav-color: #A555EC;
+
+.nav {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: $nav-color;
+    color: white;
+    position: fixed;
+    width: 160px;
+
+    .user-profile{
+        width: 50px;
+        height: 50px;
+        border-radius: 1.5em;
+        border: none;
+        margin-top: 1em;
+        margin-bottom: 0.5em;
+    }
+
+    .home{
+        text-decoration: none;
+        margin-top: auto;
+        
+        h3{
+            color: white;
+        }
+    }
+
+    .bet{
+        text-decoration: none;
+        margin-top: 1em;
+        margin-bottom: 1em;
+        h3{
+            color: white;
+        }
+    }
+
+    .profit{
+        text-decoration: none;
+
+        h3{
+            color: white;
+        }
+    }
+
+    .logout{
+        margin-top: auto;
+        margin-bottom: 2em;
+        padding: 0.8em 1em;
+        cursor: pointer;
+        border-style: none;
+        border-radius: 0.3em;
+        color: $nav-color;
+        background-color: white;
+        border: 1px solid $nav-color;
+        font-family: 'Exo', sans-serif;
+        font-weight: 700;
+    }
+}
+
+.user-nav{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+
+    .online{
+        height: 10px;
+        width: 10px;
+        background-color: rgb(19, 231, 19);
+        border-radius: 1em;
+        margin: auto;
+    }
+
+    h1{
+        margin-top: 0.5em;
+        margin-bottom: 0.5em;
+        width: 100%;
+        text-align: center;
+        padding-bottom: 0.5em;
+        border-bottom: 1px solid #EEEEEE;
+    }
+
+    h2{
+        font-weight: 400;
+        font-size: 1rem;
+        margin: auto;
+        margin-left: 0.5em;
+    }
+
+    .username{
+        display: flex;
+        margin-bottom: 0.5em;
+    }
+
+    .user-profile{
+        height: 25px;
+        width: 25px;
+        border-radius: 1em;
+        margin-left: 0.5em;
+    }
+
+}
+
+.main{
+    margin-left: 160px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+
+    .game-container{
+        display: flex;
+        justify-content: center;
+        margin: auto;
+        text-align: center;
+        flex-wrap: wrap;
+    }
+
+    .loading{
+        margin-top: 1em;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        margin: auto;
+        margin-left: 450px;
+    }
+
+    .game{
+        margin: 1em 1em;
+        padding: 1em 0.5em;
+        background-color: white;
+        width: 275px;
+        border-radius: 0.5em;
+        h1, p{
+            font-size: 1rem;
+            
+        }
+
+        .time{
+            font-weight: 400;
+            font-size: 1rem;
+        }
+
+        span{
+            font-size: 1.7rem;
+        }
+
+        .score{
+            font-size: 0.5rem;
+            margin-top: 2em;
+            margin-bottom: 2em;
+        }
+
+        .bet1{
+            border-top-left-radius: 6px;
+            border-bottom-left-radius: 6px;
+            border: 1px solid #2D033B;
+            border-right: none;
+        }
+
+        .bet2{
+            border: 1px solid #2D033B;
+            border-top-right-radius: 6px;
+            border-bottom-right-radius: 6px;
+        }
+
+        .bet{
+                appearance: button;
+                backface-visibility: hidden;
+                background-color: white;
+                box-shadow: rgba(50, 50, 93, .1) 0 0 0 1px inset,rgba(50, 50, 93, .1) 0 2px 5px 0,rgba(0, 0, 0, .07) 0 1px 1px 0;
+                box-sizing: border-box;
+                color: #1A120B;
+                font-family: 'Exo', sans-serif;
+                cursor: pointer;
+                outline: none;
+                overflow: hidden;
+                padding: 0.5em 1em;
+                text-align: center;
+                text-transform: none;
+                transform: translateZ(0);
+                transition: all .2s,box-shadow .08s ease-in;
+                user-select: none;
+                -webkit-user-select: none;
+                touch-action: manipulation;
+                width: 100px;
+                margin-bottom: 2em;
+                }
+
+                .bet:disabled {
+                cursor: default;
+                }
+
+            .betActive{
+                color: white;
+                background-color: #82CD47;
+            }
+                
+            .wager{
+                margin-bottom: 1em;
+                text-align: center;
+                width: 125px;
+                padding-left: 1em;
+            }
+
+            .betButton{
+                font-family: 'Exo', sans-serif;
+                margin-left: 1em;
+                padding: 0.5em 1.5em; 
+                border-radius: 0.5em;
+                border-style: none;
+                cursor: pointer;
+                background-color: #1C84FF;
+                color: white;
+            }
+
+            .disabledButton{
+                font-family: 'Exo', sans-serif;
+                margin-left: 1em;
+                padding: 0.5em 1.5em; 
+                border-radius: 0.5em;
+                border-style: none;
+                background-color: #1C84FF;
+                color: white;
+                opacity: 0.6;
+                cursor: not-allowed;
+            }
+
+
+        }
+}
+
+.betFail{
+    color: red;
+    text-align: center;
+}
+
+.betSuccess{
+    color: green;
+    text-align: center;
+}
+
+// .profit-title, .bet-title{
+//     margin-left: 160px;
+// }
+
+
+.bet-container{
+
+    
+    .bets{
+        background-color: white;
+        margin-left: 160px;
+        padding: 1em 0;
+        box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 10px 0px;
+
+        .game{
+            font-weight: 400;
+        }
+    }
+    .game{
+        text-align: center;
+        font-size: 1.2rem;
+    }
+
+    .myTeam{
+        font-size: 1rem;
+    }
+
+    .teamSpread{
+        font-size: 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 60px;
+    }
+
+    .profit, .result, .betAmount{
+        font-size: 1rem;
+    }
+
+    .result{
+        font-size: 1.5rem;
+        text-align: center;
+        font-weight: 700;
+    }
+
+    .loss{
+        color: red;
+    }
+
+    .win{
+        color: rgb(19, 231, 19); 
+    }
+
+    .noBet{
+        margin-left: 160px;
+        text-align: center;
+    }
+
+    .wagerAmount{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 60px;
+    }
+
+
+}
+
+.profit-container{
+        display: grid;
+        justify-content: center;
+        grid-template-columns: 100%;
+        grid-template-rows: 50% auto auto;
+        margin-left: 160px;
+        padding-top: 1em;
+}
+
+.chart{
+    margin: auto;
+    height: 500px;
+    width: 500px;
+    margin-bottom: 10em;
+}
+
+.start-container{
+    margin: auto;
+}
+
+.start-price{
+    margin: auto;
+    cursor: pointer;
+}
+
+.start-price{
+    margin: auto;
+}
+
+.start-other{
+    display: flex;
+    justify-content: space-between;
+    .start-profit{
+        margin-left: 2em;
+    }
+    .bet-title{
+        margin-right: 2em;
+    }
+}
+
+.start-info{
+    display: flex;
+    justify-content: space-between;
+    .profit-amount{
+        margin-left: 3.7em;
+    }
+
+    .bet-amount{
+        margin-right: 5.3em;
+    }
+}
+
+.start-amount{
+    width: 200px;
+    height: 42.5px;
+    margin: auto;
+}
