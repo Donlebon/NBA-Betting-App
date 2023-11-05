@@ -27,10 +27,10 @@ export function TransactionList (props: any){
     }, [allBets])
     
     
-    if(allBets.length === boxScore.length){
-        console.log(allBets, "allbets")
-        console.log(boxScore, "boxScore")
-    }
+    // if(allBets.length === boxScore.length){
+    //     console.log(allBets, "allbets")
+    //     console.log(boxScore, "boxScore")
+    // }
 
     if(allBets.length === 0){
         return <h1 className = "noBet">No Bets Found!</h1>

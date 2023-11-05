@@ -18,7 +18,7 @@ export const useCollection = (collection: any, _query: any, user: string) => {
         let ref
         if(query){
             ref = projectFirestore.collection(collection).where("user", "==", user)
-            console.log(ref)
+            // console.log(ref)
         } else{
             ref = projectFirestore.collection(collection)
         }
@@ -28,11 +28,11 @@ export const useCollection = (collection: any, _query: any, user: string) => {
             snapshot.docs.forEach(doc => {
                 results.push({...doc.data(), docid: doc.id})
             })
-            console.log(snapshot)
+            // console.log(snapshot)
             setDocuments(results)
             setError(null)
         }, (error) => {
-            console.log(error)
+            // console.log(error)
             setError("Could not fetch data")
         })
 

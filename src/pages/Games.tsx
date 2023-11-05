@@ -24,10 +24,7 @@ export default function Games() {
   const [profitAmount, setProfitAmount] = useState<number>(1)
 
   const [bballData, setBballData] = useState<any>(null)
-  
-  // console.log(scoreDate, oddDate)
-
-  
+    
     const handleFetchData = async () => {
       setError(null)
       setIsPending(true)
@@ -38,7 +35,7 @@ export default function Games() {
         {
           method: 'GET',
           headers: {
-            'X-RapidAPI-Key': '54f4d5f069mshbf4e5665eadf8e2p1511d3jsn946d219e635b',
+            'X-RapidAPI-Key': `${process.env.REACT_APP_NBA}`,
             'X-RapidAPI-Host': 'tank01-fantasy-stats.p.rapidapi.com'
           }
         }
@@ -47,7 +44,7 @@ export default function Games() {
 
   //  If no response, e.g network connection is bad
         if(!score){
-          console.log("error")
+          // console.log("error")
           throw new Error("Could not complete request")
         }
 
@@ -59,7 +56,7 @@ export default function Games() {
 
       }
         catch(err: any){
-          console.log(err.message)
+          // console.log(err.message)
           setError(err.message)
           setIsPending(false)
     }
@@ -71,7 +68,7 @@ export default function Games() {
 
       useEffect(() => {
         if(nba && bballScore){
-            console.log("this is running")
+            // console.log("this is running")
             let newData = bballScore.map((item: any, index: number) => {
               let key: keyof typeof nba;
               for(key in nba){
@@ -107,9 +104,9 @@ export default function Games() {
           }
 }, [nba, bballScore]);
 
-  console.log(nba)
-  console.log(bballScore)
-  console.log(bballData)
+  // console.log(nba)
+  // console.log(bballScore)
+  // console.log(bballData)
 
     interface IObjectKeys {
       [key: string]: string | number
@@ -148,16 +145,16 @@ export default function Games() {
         setTimeout(() => {
           setInvalidBet(false)
         }, 500)
-        console.log("Please choose a team to bet on")
+        // console.log("Please choose a team to bet on")
       } else{
         setValidBet(true)
         setTimeout(() => {
           setValidBet(false)
         }, 500)
-        console.log("Bet sent to firebase")
+        // console.log("Bet sent to firebase")
         addDocument(bballData[index])
       }
-      console.log("Bet Amount", wagerAmount, "Index", index, bballData[index], user.uid)
+      // console.log("Bet Amount", wagerAmount, "Index", index, bballData[index], user.uid)
     }
 
     const getWager = (e: any, index: any, id: number) => {
@@ -179,11 +176,6 @@ export default function Games() {
     let homeSpread = ""
     let awaySpread = ""
 
-    if(bballData === null){
-      return (
-        <h1 className = "loading">Free API daily credit has been used. Please try again tomorrow.</h1>
-      )
-    } else {
       return (
         <>
             {isPending && <h1 className = "loading">Loading Games...</h1>}
@@ -267,4 +259,3 @@ export default function Games() {
       )
     }
 
-}
