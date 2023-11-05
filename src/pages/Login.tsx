@@ -58,7 +58,7 @@ export default function Login() {
         
     </div>
 
-    <h1 className = 'footer'>Created by Don Do</h1>
+    <h1 className = 'footer'>Created by Don Do - Beta Version 0.1</h1>
 
     </>
   )
