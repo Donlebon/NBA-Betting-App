@@ -35,7 +35,7 @@ export const AuthContextProvider = ({children}: AuthContextProviderProps) => {
         })
     },[])
 
-    console.log("AuthisReady", state)
+    // console.log("AuthisReady", state)
 
 
     return (

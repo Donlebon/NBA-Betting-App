@@ -3,7 +3,6 @@ import "../home.css"
 import { todayDate } from '../hooks/todayDate'
 import { useFireStore } from '../hooks/useFiresStore'
 import { useAuthContext } from '../hooks/useAuthContext'
- 
 
 export default function Games() {
   const {user} = useAuthContext()
@@ -25,22 +24,9 @@ export default function Games() {
   const [profitAmount, setProfitAmount] = useState<number>(1)
 
   const [bballData, setBballData] = useState<any>(null)
-//  async function getNbaOdds(){
-//     const response =  await fetch(`https://tank01-fantasy-stats.p.rapidapi.com/getNBABettingOdds?gameDate=${oddDate}`,
-//     // const response = await fetch(`https://www.balldontlie.io/api/v1/games?start_date=${scoreDate}&end_date=${scoreDate}`,
-//     {
-//       method: 'GET',
-//       headers: {
-//         'X-RapidAPI-Key': '54f4d5f069mshbf4e5665eadf8e2p1511d3jsn946d219e635b',
-//         'X-RapidAPI-Host': 'tank01-fantasy-stats.p.rapidapi.com'
-//       }
-//     }
-//     );
-//     const data = await response.json();
-//     setNbaData(data.body)
-//   }
+  
+  // console.log(scoreDate, oddDate)
 
-  // const nba = sportData.body
   
     const handleFetchData = async () => {
       setError(null)
@@ -71,44 +57,6 @@ export default function Games() {
            setIsPending(false)
         }
 
-        // if(score !== null && spreadResponse !== null){
-        //     setNbaData(nbaData.body)
-        //     setBballScore(nbaScore.data)
-        //     console.log("this is running")
-        //     console.log(nbaScore.data)
-        //     setBballData(nbaScore.data.map((item: any, index: number) => {
-        //       let key: keyof typeof nba;
-        //       for(key in nba){
-        //         const nbakey = nba[key]              
-        //         if(key.slice(9, 12) === item.visitor_team.abbreviation){
-        //           return {id: index,
-        //             gameId: item.id,
-        //             user: user.uid,
-        //             date: scoreDate,
-        //             [item.home_team.abbreviation]: homeActive, 
-        //           [item.visitor_team.abbreviation]: awayActive, 
-        //           wager: wagerAmount,
-        //           profit: profitAmount,
-        //           spreadHome: {[item.home_team.abbreviation]: nbakey.fanduel.homeTeamSpread, homeTeam: item.home_team.abbreviation},
-        //           spreadAway: {[item.visitor_team.abbreviation]: nbakey.fanduel.awayTeamSpread, awayTeam: item.visitor_team.abbreviation}
-        //         }
-        //         } else if(key.slice(9, 11) === item.visitor_team.abbreviation.slice(0, -1)){
-        //           return {id: index,
-        //             gameId: item.id,
-        //             user: user.uid,
-        //             date: scoreDate,
-        //             [item.home_team.abbreviation]: homeActive, 
-        //           [item.visitor_team.abbreviation]: awayActive, 
-        //           wager: wagerAmount,
-        //           profit: profitAmount,
-        //           spreadHome: {[item.home_team.abbreviation]: nbakey.fanduel.homeTeamSpread, homeTeam: item.home_team.abbreviation},
-        //           spreadAway: {[item.visitor_team.abbreviation]: nbakey.fanduel.awayTeamSpread, awayTeam: item.visitor_team.abbreviation}
-        //         }
-        //       }
-        //       }
-        //     }))
-        //   }
-        // }
       }
         catch(err: any){
           console.log(err.message)
@@ -118,7 +66,6 @@ export default function Games() {
 }
 
       useEffect(() => {
-          // getNbaOdds();
           handleFetchData();
       },[])
 
@@ -168,17 +115,8 @@ export default function Games() {
       [key: string]: string | number
     }
     
-    // const [spread, setSpread] = useState<IObjectKeys>({})
-
-    // const handleClick = ({ target, currentTarget }: React.MouseEvent<HTMLButtonElement>, index: number) => {
-    //     setSpread((state: any) => (
-    //       {...state, [currentTarget.value]: !state[currentTarget.value]}
-    //     ))
-    // }
-
     const [spread, setSpread] = useState<IObjectKeys>({})
 
-        // console.log(nba["20230130_ATL@POR"].fanduel.awayTeamSpread)
 
     const handleClick = ({ target, currentTarget }: React.MouseEvent<HTMLButtonElement>, index: number, team: string, away: string) => {
       setBballData((state: any) => {
@@ -241,88 +179,92 @@ export default function Games() {
     let homeSpread = ""
     let awaySpread = ""
 
-
-  return (
-    // <div>
-    //   {bballScore && <h1>hello, basketball works</h1>}
-    //   {nba && <h1>Nba works, this is the best int he world</h1>}
-    // </div>
-<main className = "main">
-        {isPending && <h1 className = "loading">Loading Games...</h1>}
-        {invalidBet && <h1 className = "betFail">Bet Unsuccessful...</h1>}
-        {validBet && <h1 className = "betSuccess">Bet Successful!</h1>}
-        <div className = "game-container">
-          {(bballScore && nba) && bballScore.map((item: any, index: number) => {
-            let key: keyof typeof nba;
-            for(key in nba){
-              const final = nba[key]
-              if(key.slice(9, 12) === item.visitor_team.abbreviation){
-                  homeSpread = final.fanduel.homeTeamSpread
-                  awaySpread = final.fanduel.awayTeamSpread
-                  // console.log("first if ran")
-                  // console.log(key.slice(9, 12), awaySpread, item.home_team.abbreviation, homeSpread)
-                  break
-                } 
-                else if(key.slice(-3) === item.home_team.abbreviation){
-                  // console.log(key.slice(9, 11), item.visitor_team.abbreviation.slice(0, -1))
-                  homeSpread = final.fanduel.homeTeamSpread
-                  awaySpread = final.fanduel.awayTeamSpread
-                  // console.log("second if ran")
-                  // console.log(key.slice(9, 11), awaySpread, item.home_team.abbreviation.slice(0, -1), homeSpread)
-                  break
+    if(bballData === null){
+      return (
+        <h1 className = "loading">Free API daily credit has been used. Please try again tomorrow.</h1>
+      )
+    } else {
+      return (
+        <>
+            {isPending && <h1 className = "loading">Loading Games...</h1>}
+            {invalidBet && <h1 className = "betFail loading">Bet Unsuccessful...</h1>}
+            {validBet && <h1 className = "betSuccess loading">Bet Successful!</h1>}
+          <main className = "main">
+            <div className = "game-container">
+              {(bballScore && nba) && bballScore.map((item: any, index: number) => {
+                let key: keyof typeof nba;
+                for(key in nba){
+                  const final = nba[key]
+                  if(key.slice(9, 12) === item.visitor_team.abbreviation){
+                      homeSpread = final.fanduel.homeTeamSpread
+                      awaySpread = final.fanduel.awayTeamSpread
+                      // console.log("first if ran")
+                      // console.log(key.slice(9, 12), awaySpread, item.home_team.abbreviation, homeSpread)
+                      break
+                    } 
+                    else if(key.slice(-3) === item.home_team.abbreviation){
+                      // console.log(key.slice(9, 11), item.visitor_team.abbreviation.slice(0, -1))
+                      homeSpread = final.fanduel.homeTeamSpread
+                      awaySpread = final.fanduel.awayTeamSpread
+                      // console.log("second if ran")
+                      // console.log(key.slice(9, 11), awaySpread, item.home_team.abbreviation.slice(0, -1), homeSpread)
+                      break
+                    }
+                    else if(key.slice(9, 11) === item.visitor_team.abbreviation.slice(0, -1)){
+                      // console.log(key.slice(9, 11), item.visitor_team.abbreviation.slice(0, -1))
+                      homeSpread = final.fanduel.homeTeamSpread
+                      awaySpread = final.fanduel.awayTeamSpread
+                      // console.log("third if ran")
+                      // console.log(key.slice(9, 11), awaySpread, item.home_team.abbreviation.slice(0, -1), homeSpread)
+                      // console.log(bballData)
+                  }
                 }
-                else if(key.slice(9, 11) === item.visitor_team.abbreviation.slice(0, -1)){
-                  // console.log(key.slice(9, 11), item.visitor_team.abbreviation.slice(0, -1))
-                  homeSpread = final.fanduel.homeTeamSpread
-                  awaySpread = final.fanduel.awayTeamSpread
-                  // console.log("third if ran")
-                  // console.log(key.slice(9, 11), awaySpread, item.home_team.abbreviation.slice(0, -1), homeSpread)
-                  // console.log(bballData)
-              }
-            }
-              return (
-                <div className = "game" key = {item.id}>
-                  <h1>@{item.home_team.full_name} {homeSpread}</h1>
-                  <h1>{item.visitor_team.full_name} {awaySpread}</h1> 
-                  <h1 className = "score">{item.home_team.abbreviation} <span>{item.home_team_score} - {item.visitor_team_score}</span> {item.visitor_team.abbreviation}</h1>
-                  <form onSubmit = {(e) => handleBet(e, index, item.home_team.abbreviation, item.visitor_team.abbreviation)}>
+                  return (
+                    <div className = "game" key = {item.id}>
+                      <h1>@{item.home_team.full_name} {homeSpread}</h1>
+                      <h1>{item.visitor_team.full_name} {awaySpread}</h1> 
+                      <h1 className = "score">{item.home_team.abbreviation} <span>{item.home_team_score} - {item.visitor_team_score}</span> {item.visitor_team.abbreviation}</h1>
+                      <form onSubmit = {(e) => handleBet(e, index, item.home_team.abbreviation, item.visitor_team.abbreviation)}>
+    
+                        {bballData && (<button 
+                        key = {item.home_team.id}
+                        type = "button"
+                        className = {`bet bet1 ${bballData[index][item.home_team.abbreviation] ? "betActive" : ""}`}
+                        value = {item.home_team.abbreviation}
+                        onClick = {(e) => {handleClick(e, index, item.home_team.abbreviation, item.visitor_team.abbreviation)}}
+    
+                        >{item.home_team.abbreviation} {homeSpread}
+                        </button>)}
+                        
+                        {bballData && (<button className = {`bet bet2 ${bballData[index][item.visitor_team.abbreviation] ? "betActive" : ""}`}
+                        key = {item.visitor_team.id}
+                        type = "button"
+                        value = {item.visitor_team.abbreviation}
+                        onClick = {(e) => {handleClick(e, index, item.home_team.abbreviation, item.visitor_team.abbreviation)}}
+                        >{item.visitor_team.abbreviation} {awaySpread}</button>)}
+    
+                        <input type = "number" min = "1" className = "wager" 
+                        
+                        onChange = {(e) => {getWager(e, index, item.id)}}>
+    
+    
+                        </input>
+                        
+                        <button className = {`${bballScore[index]["status"].includes("Qtr") || bballScore[index]["status"].includes("Final") ? "disabledButton" : "betButton" }`}
+                        disabled = {bballScore[index]["status"].includes("Qtr") || bballScore[index]["status"].includes("Final") ? true : false}
+                        type = "submit"
+                        >Bet</button>
+    
+    
+                      </form>
+    
+                    </div>
+                  )
+                })}
+            </div>
+        </main>
+        </>
+      )
+    }
 
-                    {bballData && (<button 
-                    key = {item.home_team.id}
-                    type = "button"
-                    className = {`bet bet1 ${bballData[index][item.home_team.abbreviation] ? "betActive" : ""}`}
-                    value = {item.home_team.abbreviation}
-                    onClick = {(e) => {handleClick(e, index, item.home_team.abbreviation, item.visitor_team.abbreviation)}}
-
-                    >{item.home_team.abbreviation} {homeSpread}
-                    </button>)}
-                    
-                    {bballData && (<button className = {`bet bet2 ${bballData[index][item.visitor_team.abbreviation] ? "betActive" : ""}`}
-                    key = {item.visitor_team.id}
-                    type = "button"
-                    value = {item.visitor_team.abbreviation}
-                    onClick = {(e) => {handleClick(e, index, item.home_team.abbreviation, item.visitor_team.abbreviation)}}
-                    >{item.visitor_team.abbreviation} {awaySpread}</button>)}
-
-                    <input type = "number" min = "1" className = "wager" 
-                    
-                    onChange = {(e) => {getWager(e, index, item.id)}}>
-
-
-                    </input>
-                    
-                    <button className = {`${bballScore[index]["status"].includes("Qtr") || bballScore[index]["status"].includes("Final") ? "disabledButton" : "betButton" }`}
-                    disabled = {bballScore[index]["status"].includes("Qtr") || bballScore[index]["status"].includes("Final") ? true : false}
-                    type = "submit"
-                    >Bet</button>
-
-
-                  </form>
-
-                </div>
-              )
-            })}
-        </div>
-    </main>
-  )
 }

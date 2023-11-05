@@ -11,6 +11,10 @@ export default function Login() {
   const [password, setPassword] = useState<string>("")
   const {login, error, isPending} = useLogin()
 
+  console.log(process.env)
+  
+
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
     login(email, password)

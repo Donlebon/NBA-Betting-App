@@ -39,12 +39,11 @@ export default function Profit() {
       const betArray: any = []
       await projectFirestore.collection("transactions").get().then((querySnapshot) => {
           querySnapshot.forEach((doc) => {
-              // doc.data() is never undefined for query doc snapshots
               betArray.push(doc.data())
           });
       });
       const finalArray = betArray.filter((finished: any) => finished.finished === true && user.uid === finished.user)
-      console.log(finalArray)
+      // console.log(finalArray)
       setNbaProfits(finalArray)
   }
 

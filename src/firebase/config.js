@@ -3,7 +3,7 @@ import 'firebase/firestore'
 import 'firebase/auth'
 
 const firebaseConfig = {
-    apiKey: "AIzaSyBgy_O0YFw0iEwjHz1B5VKMnRT9JNREZZ0",
+    apiKey: 'AIzaSyBgy_O0YFw0iEwjHz1B5VKMnRT9JNREZZ0',
     authDomain: "nbabettingtracker.firebaseapp.com",
     projectId: "nbabettingtracker",
     storageBucket: "nbabettingtracker.appspot.com",

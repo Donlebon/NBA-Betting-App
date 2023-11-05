@@ -10,17 +10,6 @@ export function TransactionList (props: any){
     const [betResult, setBetResult] = useState<string>("")
     const [profit, setProfit] = useState<boolean>(false)
 
-
-    const url = "https://www.balldontlie.io/api/v1/games?"
-    const games = "start_date=2023-02-08&end_date=2023-02-08"
-
-
-//     let updateCollection = projectFirestore.collection("transactions").doc("${doc.id}")
-// updateCollection.update({
-//     finished: true
-
-// })
-
     const fetchPractice = async () => {
         await Promise.all(
             allBets.map(async (item: any) => {
@@ -209,25 +198,6 @@ export function TransactionList (props: any){
                         }
                     }
             }
-                
-                        
-                   
-
-            // return (
-            //     <div key = {item.docid} className = "bets">
-            //         <h1 className = "game">@{item.spreadHome.homeTeam} vs {item.spreadAway.awayTeam} - {item.date}</h1>
-            //         <div className = "teamSpread">
-            //             {item[item.spreadHome.homeTeam] && <p className = "myTeam">{item.spreadHome.homeTeam} <span className = "spread">{item.spreadHome[item.spreadHome.homeTeam]}</span></p>}
-            //             {item[item.spreadAway.awayTeam] && <p className = "myTeam">{item.spreadAway.awayTeam} <span className = "spread">{item.spreadHome[item.spreadHome.homeTeam]}</span></p>}
-            //             <p className = "odds">-110</p>
-            //         </div>
-            //         <div className = "wagerAmount">
-            //             <p className = "betAmount">Wager: ${item.wager}</p>
-            //             <p className = "result">Win</p>
-            //             <p className = "profit">Profit: ${Math.round(item.wager * 1.91) - item.wager}</p>
-            //         </div>
-            //     </div>
-            // )
         })}
         </div>
     )

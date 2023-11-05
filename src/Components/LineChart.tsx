@@ -15,21 +15,7 @@ export default function LineChart(props: any){
     useEffect(() => {
       ref.current = Number(props.startingAmount)
     }, [props.startingAmount])
-    // console.log(props.nbaProfits)
-    // async function getProfit(){
-    //     const betArray: any = []
-    //     await projectFirestore.collection("transactions").get().then((querySnapshot) => {
-    //         querySnapshot.forEach((doc) => {
-    //             // doc.data() is never undefined for query doc snapshots
-    //             betArray.push(doc.data())
-    //         });
-    //     });
-    //     setNbaProfits(betArray)
-    // }
 
-    // useEffect(() => {
-    //     getProfit()
-    // },[])
 
     useEffect(() => {
         if(props.nbaProfits){
