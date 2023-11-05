@@ -17,4 +17,3 @@
 
 # Insight
 
-I'm a certified degen!
