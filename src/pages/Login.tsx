@@ -9,11 +9,7 @@ export default function Login() {
   const [userInput, setUserInput] = useState('')
   const [email, setEmail] = useState<string>("")
   const [password, setPassword] = useState<string>("")
-  const {login, error, isPending} = useLogin()
-
-  console.log(process.env)
-  
-
+  const {login, error, isPending} = useLogin()  
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
@@ -21,6 +17,7 @@ export default function Login() {
   }
 
   return (
+    <>
     <div className = "login-container"> 
         <img className = "cat" src = {cat}/>
         {error && <p className = "error-login">{error}</p>}
@@ -58,8 +55,11 @@ export default function Login() {
             </h3>
             
         </form>
+        
     </div>
 
+    <h1 className = 'footer'>Created by Don Do</h1>
 
+    </>
   )
 }
