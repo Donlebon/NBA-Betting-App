@@ -21,7 +21,7 @@ export default function useLogout() {
             // Dispatch Login Action
 
             dispatch({type: "LOGOUT"})
-            navigate("/")
+            navigate("/NBA-Betting-App/")
             if(!isCancelled){
                 setIsPending(false)
                 setError(null)

@@ -20,7 +20,7 @@ export default function useLogin() {
             // Dispatch Login Action
 
             dispatch({type: "LOGIN", payload: res.user})
-            navigate("/")
+            navigate("/NBA-Betting-App/")
             if(!isCancelled){
                 setIsPending(false)
                 setError(null)
