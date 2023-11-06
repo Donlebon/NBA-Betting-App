@@ -22,7 +22,7 @@ function App() {
           <>
             <Navbar/>
             <Routes>
-              <Route path = "/" element = {<Login />} />
+              <Route path = "/NBA-Betting-App/" element = {<Login />} />
               <Route path = "/login" element = {<Login />} />
               <Route path = "/signup" element = {<Signup />} />
             </Routes> 
@@ -33,7 +33,7 @@ function App() {
             <div className = "container">
               <Navsidebar />
               <Routes>
-                <Route path = "/" element = {<Games />} />
+                <Route path = "/NBA-Betting-App/" element = {<Games />} />
                 <Route path = "/bets" element = {<OpenBets />} />
                 <Route path = "/profits" element = {<Profit />} />
               </Routes>
