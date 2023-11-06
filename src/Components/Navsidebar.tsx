@@ -20,7 +20,7 @@ export default function Navsidebar() {
 
         <h1>{user.displayName}</h1>
 
-        <Link to = "/" className = "home">
+        <Link to = "/NBA-Betting-App/" className = "home">
             <h3>Home</h3>
         </Link>
 

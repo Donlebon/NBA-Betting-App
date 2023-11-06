@@ -6,7 +6,7 @@ export default function Navbar() {
 
   return (
     <div className = "nav-container">
-      <Link to = "/" className = "nav-buttons">
+      <Link to = "/NBA-Betting-App/" className = "nav-buttons">
             <h1>NBA Betting Tracker</h1>
       </Link>
       <div className = "login-section">
