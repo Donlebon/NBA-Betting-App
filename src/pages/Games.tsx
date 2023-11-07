@@ -105,7 +105,7 @@ export default function Games() {
 }, [nba, bballScore]);
 
   // console.log(nba)
-  // console.log(bballScore)
+  // console.log(bballScore.length)
   // console.log(bballData)
 
     interface IObjectKeys {
@@ -176,11 +176,14 @@ export default function Games() {
     let homeSpread = ""
     let awaySpread = ""
 
+    console.log(bballScore)
+
       return (
         <>
-            {isPending && <h1 className = "loading">Loading Games...</h1>}
-            {invalidBet && <h1 className = "betFail loading">Bet Unsuccessful...</h1>}
-            {validBet && <h1 className = "betSuccess loading">Bet Successful!</h1>}
+        {(bballScore === null || (Array.isArray(bballScore) && bballScore.length === 0)) && (<h1 className='loading'>No NBA Games Today</h1>)}            
+        {isPending && <h1 className = "loading">Loading Games...</h1>}
+        {invalidBet && <h1 className = "betFail loading">Bet Unsuccessful...</h1>}
+        {validBet && <h1 className = "betSuccess loading">Bet Successful!</h1>}
           <main className = "main">
             <div className = "game-container">
               {(bballScore && nba) && bballScore.map((item: any, index: number) => {
