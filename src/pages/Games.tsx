@@ -176,7 +176,7 @@ export default function Games() {
     let homeSpread = ""
     let awaySpread = ""
 
-    console.log(bballScore)
+    // console.log(bballScore)
 
       return (
         <>
