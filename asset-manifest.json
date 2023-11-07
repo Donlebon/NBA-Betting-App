@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/NBA-Betting-App/static/css/main.5e125c61.css",
-    "main.js": "/NBA-Betting-App/static/js/main.750f9825.js",
+    "main.js": "/NBA-Betting-App/static/js/main.aec426c3.js",
     "static/media/cat.jpg": "/NBA-Betting-App/static/media/cat.3a3400f86cffb172280d.jpg",
     "index.html": "/NBA-Betting-App/index.html",
     "main.5e125c61.css.map": "/NBA-Betting-App/static/css/main.5e125c61.css.map",
-    "main.750f9825.js.map": "/NBA-Betting-App/static/js/main.750f9825.js.map"
+    "main.aec426c3.js.map": "/NBA-Betting-App/static/js/main.aec426c3.js.map"
   },
   "entrypoints": [
     "static/css/main.5e125c61.css",
-    "static/js/main.750f9825.js"
+    "static/js/main.aec426c3.js"
   ]
 }
