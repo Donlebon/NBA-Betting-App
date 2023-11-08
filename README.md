@@ -2,6 +2,8 @@
 
 <b> Bet on daily NBA games, track your win/losses, and see how much you have profited! </b>
 
+- Test User Account available, Message me for login details!
+
 # Tech Stack:
 
 ![HTML](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
