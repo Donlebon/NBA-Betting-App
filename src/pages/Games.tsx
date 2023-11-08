@@ -180,7 +180,7 @@ export default function Games() {
 
       return (
         <>
-        {(bballScore === null || (Array.isArray(bballScore) && bballScore.length === 0)) && (<h1 className='loading'>No NBA Games Today</h1>)}            
+        {/* {(bballScore === null || (Array.isArray(bballScore) && bballScore.length === 0)) && (<h1 className='loading'>No NBA Games Today</h1>)}             */}
         {isPending && <h1 className = "loading">Loading Games...</h1>}
         {invalidBet && <h1 className = "betFail loading">Bet Unsuccessful...</h1>}
         {validBet && <h1 className = "betSuccess loading">Bet Successful!</h1>}
